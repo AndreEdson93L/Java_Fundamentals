@@ -1,0 +1,36 @@
+package com.codewithandrew;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //Variables
+        //To store a simple value
+
+        int age = 30;
+        int temperature = 20;
+        int herAge = age;
+        age = 29;
+        
+        System.out.println(age);
+        
+        //Primitive Types
+        //byte 1 Bytes [-128, 127]
+        //short 2 Bytes [-32K, 32K]
+        //int 4 Bytes [-2B, 2B]
+        //long 8 Bytes []
+        //float 4 Bytes []
+        //double 8 Bytes []
+        //char 2 Bytes A, B, C, a, /
+        //boolean 1 Bytes true/false
+         
+        byte idade = 30;
+        int viewsCount = 14_542_535;
+        long viewsOnYoutube = 3_343_342_342L;
+        double price = 10.99;
+        double pi = 3.14F;
+        char letter = 'A';
+        boolean isEligible = true;
+        isEligible = false;
+        
+    }
+}
