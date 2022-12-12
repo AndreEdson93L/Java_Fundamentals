@@ -1,0 +1,20 @@
+package com.codewithandrew;
+
+public class Main {
+    public static void main(String[] args) {
+        /*
+        Source code *.java / Java Compiler / Byte Code *.class
+
+        Byte Code *.class / Java Virtual Machine / Native Code Windows, Mac, ...
+        
+        Types, 
+        Control Flow, 
+        Clean Coding, 
+        Finding and fixing errors, 
+        Packaging your applications
+         */
+
+        System.out.println("Hello world!");
+
+    }
+}
