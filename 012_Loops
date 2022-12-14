@@ -1,0 +1,103 @@
+package com.codewithandrew;
+
+import java.text.NumberFormat;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //For Loops
+
+        for (int i = 0; i < 10; i++)
+            System.out.println("Hello world: " + i);
+
+        for (int i = 10; i >= 0; i--)
+            System.out.println("Hello world: " + i);
+
+        //While Loops
+
+        int i = 0;
+        while (i < 10){
+            System.out.println("While: " + i);
+            i++;
+        }
+
+        i = 10;
+        while (i >= 0){
+            System.out.println("While: " + i);
+            i--;
+        }
+
+        //We cannot use comparison operators between reference types ex. == or !=
+
+        String input = "";
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Print 'quit' to terminate the loop.");
+
+        while (!input.equals("quit")){
+            System.out.print("Input: ");
+            input = scanner.next().toLowerCase();
+            System.out.println("Echo >> " + input);
+        }
+
+        //Do.. While Loops
+
+        System.out.println("Print 'esc' to terminate the loop.");
+
+        do {
+            System.out.print("Input: ");
+            input = scanner.next().toLowerCase();
+            System.out.println("Echo >> " + input);
+        } while(!input.equals("esc"));
+
+        //Break and Continue Statements
+
+        System.out.println("Print 'lol' to terminate the loop or 'pass' to active the continue keyword.");
+
+        while (!input.equals("lol")){
+            System.out.print("Input: ");
+            input = scanner.next().toLowerCase();
+
+            //continue keyword
+            if (input.equals("pass"))
+                continue;
+
+            //First solution to not print the word lol
+            if (!input.equals("lol"))
+                System.out.println("Echo >> " + input);
+
+            //Second solution to not print the word lol
+            if (input.equals("lol"))
+                break;
+        }
+
+        String userinput = "";
+
+        System.out.println("Print the word 'quitting' to terminate the program.");
+
+        while (true){
+            System.out.print("Input: ");
+            userinput = scanner.next();
+
+            if (!userinput.equals("quitting"))
+                System.out.println("Echo >> " + input);
+
+            if (userinput.equals("quitting"))
+                break;
+        }
+
+        //For-Each Loop
+
+        String[] names = {"Andrea", "Edson", "Matteo", "Giacomo", "Giovanni", "Aldo"};
+
+        for (int j = 0; j < names.length; j++)
+            System.out.println(names[j]);
+
+        for (String name : names)
+            System.out.println(name);
+
+        for (int z = names.length - 1; z >= 0; z--)
+            System.out.println(names[z] + " z: " + z);
+    }
+ }
