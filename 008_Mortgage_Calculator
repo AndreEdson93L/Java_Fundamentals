@@ -1,0 +1,46 @@
+package com.codewithandrew;
+
+import java.awt.*;
+import java.text.FieldPosition;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Mortgage Calculator
+
+        //Principal
+        //Annual Interest Rate
+        //Period (Years)
+        //Mortgage
+
+        int principal;
+        double interestRate;
+        int period;
+        double mortgage, i, n, numerator, denominator;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("How much you want from your bank? ");
+        principal = scanner.nextInt();
+
+        System.out.print("Choose your interest rate: ");
+        interestRate = scanner.nextDouble() / 100 / 12;
+
+        System.out.print("Since we are really friendly, in how much time you would like to give back the money (years): ");
+        period = scanner.nextInt();
+
+        i = interestRate;
+        n = period * 12;
+        numerator = principal * i * Math.pow(1 + i, n);
+        denominator = Math.pow(1 + i, n) - 1;
+
+        mortgage = numerator / denominator;
+
+        String result = NumberFormat.getCurrencyInstance().format(mortgage);
+
+        System.out.println("Your mortgage is: " + result);
+    }
+}
