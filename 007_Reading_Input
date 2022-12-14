@@ -1,0 +1,47 @@
+package com.codewithandrew;
+
+import java.awt.*;
+import java.text.FieldPosition;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Formatting Numbers
+
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        NumberFormat percentage = NumberFormat.getPercentInstance();
+
+        // Method chaining
+
+        String methodChaining = NumberFormat.getPercentInstance().format(0.45);
+
+        String result = currency.format(1345.95);
+        String resultPercentage = percentage.format(0.3);
+
+        System.out.println(result);
+        System.out.println(resultPercentage);
+        System.out.println(methodChaining);
+
+        // Reading Input
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("What's your age? ");
+        byte age = scanner.nextByte();
+        System.out.println("You are " + age + " years old.");
+
+        //The next() method read one token only.
+
+        System.out.print("What's your name? ");
+        String name = scanner.next();
+        System.out.println("Your name is: " + name);
+
+        System.out.print("What's your full name? ");
+        String fullName = scanner.nextLine().trim();
+        System.out.println("Your name is: " + fullName);
+
+    }
+}
