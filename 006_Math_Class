@@ -1,0 +1,40 @@
+package com.codewithandrew;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // The Math Class
+
+        //round() is a method that is overloaded. It means that is implemented twice.
+        int result = Math.round(1.4F);
+
+        System.out.println(result);
+
+        result = (int)Math.ceil(1.1F);
+        System.out.println(result);
+
+        result = (int)Math.floor(1.5);
+        System.out.println(result);
+
+        result = Math.max(4, 89);
+        System.out.println(result);
+
+        result = Math.min(5, 12);
+        System.out.println(result);
+
+        result = (int)(Math.random() * 100);
+        System.out.println(result);
+
+        double randomNumber = Math.random();
+        System.out.println(randomNumber);
+
+        int number = (int)Math.round(Math.random() * 100);
+        System.out.println(number);
+    }
+}
