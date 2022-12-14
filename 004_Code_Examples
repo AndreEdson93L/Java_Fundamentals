@@ -1,0 +1,93 @@
+package com.codewithandrew;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //Multi-dimensional Arrays
+        //2 rows
+        //3 columns
+        int[][] numbers = new int[2][5];
+
+        numbers[0][0] = 1;
+
+        System.out.println(Arrays.toString(numbers));
+
+        //deepToString(), we use it to print multidimensional arrays
+        System.out.println(Arrays.deepToString(numbers));
+
+        int[][][] cube = new int[8][8][8];
+        int[][] twoDimensionArrays = {{1, 2, 3, 5},{4, 6, 7, 9}};
+
+        System.out.println(Arrays.deepToString(twoDimensionArrays));
+
+        //Constants
+        final float PI = 3.14F;
+
+        //Arithmetic Expressions
+        /*
+        + addition
+        - subtraction
+        / division
+        * multiplication
+        % modulus
+         */
+
+        int result = 10 + 3;
+        System.out.println(result);
+
+        int division = 10 / 3;
+        System.out.println(division);
+
+        //the result will be 3.3333333333333335
+        double moreAccurateDivision = (double) 10 / (double) 3;
+        System.out.println(moreAccurateDivision);
+
+        //the result will be 3.0
+        moreAccurateDivision = 10 / 3;
+        System.out.println(moreAccurateDivision);
+
+        int x = 1;
+        x++;
+        System.out.println(x);
+
+        ++x;
+        System.out.println(x);
+
+        int z = 1;
+        int y = z++;
+
+        //1
+        System.out.println(y);
+        //2
+        System.out.println(z);
+
+        int t = 1;
+        int g = ++t;
+
+        //t = 2
+        //g = 2
+
+        System.out.println(t);
+        System.out.println(g);
+
+        int example = 1;
+
+        example = example + 2;
+        example += 2;
+
+        //5
+        System.out.println(example);
+
+        example -= 1;
+        example *= 10;
+        example /= 2;
+
+        System.out.println(example);
+    }
+}
