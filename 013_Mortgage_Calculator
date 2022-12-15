@@ -1,0 +1,90 @@
+package com.codewithandrew;
+
+import java.text.NumberFormat;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Mortgage Calculator
+
+        //Principal
+        //Annual Interest Rate
+        //Period (Years)
+        //Mortgage
+
+        //Constant values
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+
+        //Variables used to calculate the mortgage
+        int principalAmount;
+        float monthlyInterestRate;
+        byte periodInYears;
+        double mortgage, i, n, numerator, denominator;
+
+        //Object created to read the input of the user
+        Scanner scanner = new Scanner(System.in);
+
+        //While loop used to validate the input of the user for the principalAmount
+        while (true) {
+            System.out.print("How much you want from your bank [min: 1k max: 1M]? ");
+            if (scanner.hasNextInt()) {
+                principalAmount = scanner.nextInt();
+                if (principalAmount >= 1000 && principalAmount <= 1000000)
+                    break;
+                else
+                    System.out.println("Values accepted [min: 1k max: 1M]");
+            } else{
+                System.out.println("Provide a valid input.");
+            }
+
+            scanner.nextLine(); // discard the new line generated (if the input is not an integer).
+        }
+
+        //While loop used to validate the input of the user for the Interest rate
+        while (true) {
+            System.out.print("Choose your interest rate: ");
+            if (scanner.hasNextFloat()) {
+                monthlyInterestRate = scanner.nextFloat() / PERCENT / MONTHS_IN_YEAR;
+                if (monthlyInterestRate > 0 && monthlyInterestRate <= 30)
+                    break;
+                else
+                    System.out.println("Values accepted >> float [min: 0.1 max: 30]");
+            } else {
+                System.out.println("Provide a valid input >> float [min: 0.1 max: 30]");
+            }
+            scanner.nextLine();  // discard the current line
+        }
+
+        //While loop used to validate the input of the user for the period in years (To give back the money)
+        while (true) {
+            System.out.print("Since we are really friendly, in how much time you would like to give back the money (years): ");
+            if (scanner.hasNextByte()){
+                periodInYears = scanner.nextByte();
+                if (periodInYears > 0 && periodInYears <= 30)
+                    break;
+                else
+                    System.out.println("Values accepted >> float [min: 0.1 max: 30]");
+            } else {
+                System.out.println("Provide a valid input >> float [min: 0.1 max: 30]");
+            }
+            scanner.nextLine();  // discard the current line
+        }
+
+
+        //Formula and variables used to calculate the mortgage
+        i = monthlyInterestRate;
+        n = periodInYears * MONTHS_IN_YEAR;
+        numerator = principalAmount * i * Math.pow(1 + i, n);
+        denominator = Math.pow(1 + i, n) - 1;
+
+        mortgage = numerator / denominator;
+
+        String result = NumberFormat.getCurrencyInstance().format(mortgage);
+
+        //Printing the result
+        System.out.println("Your mortgage is: " + result);
+
+        }
+    }
