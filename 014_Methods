@@ -1,0 +1,23 @@
+package com.codewithandrew;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+            greetUser("Andrea Edson Lorenzoni");
+            greetUser("Ginevra");
+            greetUser("Lion", "King of the Jungle");
+            String user = greetUser("Aldo", "Terun Terun", "ATNAPOLIMIIIII987");
+            System.out.println(user);
+        }
+
+        public static void greetUser(String name){
+            System.out.println("Hello " + name);
+        }
+        public static void greetUser(String firstName, String lastName) {
+            System.out.println("Hello " + firstName + " " + lastName);
+        }
+        public static String greetUser(String firstName, String lastName, String fiscalCode){
+            return "Hello " + firstName + " " + lastName + ", this is your fiscal code: " + fiscalCode;
+        }
+    }
