@@ -1,0 +1,91 @@
+package com.codewithandrew;
+
+import java.text.NumberFormat;
+import java.util.*;
+
+public class Main {
+    //static methods can only access static variables.
+    //these variables are called fields.
+    //field is a variable that we define at class level, and it is accessible to all methods in that class.
+    final static byte MONTHS_IN_YEAR = 12;
+    final static byte PERCENT = 100;
+    public static void main(String[] args) {
+
+        // Refactoring.
+        // Changing the structure without changing the method.
+
+        int principalAmount = (int)readNumber("Principal: ", 1000, 1_000_000);
+        float annualInterest = (float)readNumber("Annual Interest Rate: ", 1, 30);
+        byte periodInYears = (byte)readNumber("Period (Years): ", 1, 30);
+
+        printMortgage(principalAmount, annualInterest, periodInYears);
+        printPaymentSchedule(principalAmount, annualInterest, periodInYears);
+    }
+
+    public static void printMortgage(int principalAmount, float annualInterest, byte periodInYears) {
+        double mortgage = calculateMortgage(principalAmount, annualInterest, periodInYears);
+        String result = NumberFormat.getCurrencyInstance().format(mortgage);
+
+        //Printing the result
+        System.out.println("Your mortgage is: " + result);
+    }
+
+    public static void printPaymentSchedule(int principalAmount, float annualInterest, byte periodInYears) {
+        //Payment schedule
+        System.out.println("\nPayment schedule\n________________");
+        double balance = 0;
+
+        for (short month = 1; month <= periodInYears * MONTHS_IN_YEAR; month++){
+            balance = calculateBalance(principalAmount, annualInterest, periodInYears, month);
+            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
+        }
+    }
+
+    public static double readNumber(String prompt, double min, double max){
+        //While loop used to validate the input of the user
+        Scanner scanner = new Scanner(System.in);
+        double value = 0;
+        while (true) {
+            System.out.print(prompt);
+            if (scanner.hasNextFloat()){
+                value = scanner.nextFloat();
+                if (value >= min && value <= max)
+                    break;
+                else
+                    System.out.println("Values accepted >> float [min: " + min + " " + "max: " + max + "]");
+            } else {
+                System.out.println("Provide a valid input >> float [min: " + min + " " + "max: " + max + "]");
+            }
+            scanner.nextLine();  // discard the current line
+        }
+        return value;
+    }
+    public static double calculateBalance(int principalAmount, float annualInterest, byte periodInYears, short numberOfPaymentsMade){
+
+        float monthlyInterestRate = annualInterest / PERCENT / MONTHS_IN_YEAR;
+
+        float i = monthlyInterestRate;
+        short n = (short)(periodInYears * MONTHS_IN_YEAR);
+
+        double balance = principalAmount *
+                (Math.pow(1 + monthlyInterestRate, n) - Math.pow(1 + monthlyInterestRate, numberOfPaymentsMade))
+                / (Math.pow(1 + monthlyInterestRate, n) - 1);
+
+        return balance;
+    }
+    public static double calculateMortgage(int principalAmount, float annualInterest, byte periodInYears){
+        //Formula and variables used to calculate the mortgage
+
+        float monthlyInterestRate = annualInterest / PERCENT / MONTHS_IN_YEAR;
+
+        float i = monthlyInterestRate;
+        short n = (short)(periodInYears * MONTHS_IN_YEAR);
+
+        double numerator = principalAmount * i * Math.pow(1 + i, n);
+        double denominator = Math.pow(1 + i, n) - 1;
+
+        double mortgage = numerator / denominator;
+
+        return mortgage;
+    }
+}
