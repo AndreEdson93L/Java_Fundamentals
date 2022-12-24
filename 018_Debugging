@@ -1,0 +1,14 @@
+package com.codewithandrew;
+
+public class Main {
+    public static void main(String[] args) {
+        //Types of error in JAVA
+        
+        //Compile-time Errors (Syntax).
+        //Run-time Errors (Debugger).
+        
+        //With the Debugger we have the call stack [Frames].
+        //We can see the methods, that are calling others methods, in reverse order, in top of each others.
+        //We can also see the value of the variables (while debugging).
+    }
+}
